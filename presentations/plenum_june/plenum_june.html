@@ -1,0 +1,269 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css" id="highlight-theme">
+		
+		<style>
+    		header {
+    			  padding: 40px;
+    		}
+    		
+    		ul {
+    		  font-size: 32px;
+    		  font-color: white;
+    		}
+    		
+    		table {
+    		  color: white;
+    		}
+		</style>
+		
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			
+				<section> <!-- 1st slide -->
+				  <header>
+      				    <h2>Progress June</h2>
+				  </header>
+				  <ol>
+				    <li>Simulation: parameters, observables, rejections</li>
+				    <li>Nondimensional demand and supply</li>
+				    <li>Dynamics on 4 different maps</li>
+				  </ol>
+				</section>
+				
+				<section> <!-- reminder: sim. parameters, observables, rejections -->
+				  
+				  <section>
+				    <header>
+				    <h4>Simulation: parameters, observables, rejections</h4>
+				    </header>
+    			    <table><tr>
+    			      <td><iframe data-src="videos/gif_gebiet1_3.mp4" height="600" width="1100" type="video/mp4"></iframe></td>
+			          <td style="vertical-align: top" class="fragment" data-fragment-index="0">
+   			            <ul style="margin-bottom: 1cm; margin-top: 2cm; margin-right: 3cm;">		
+        			    parameters:     
+        			    <li>number of buses</li>
+        			    <li>request frequency</li>
+        			    <li>maximum allowed delay</li>
+    			        </ul>
+			          </td>
+			          <td style="vertical-align: top" class="fragment" data-fragment-index="1">
+   			            <ul style="margin-bottom: 1cm; margin-top: 2cm; margin-right: 3cm;">		
+        			    observables:     
+        			    <li>average delay</li>
+        			    <li>driven distance</li>
+        			    <li>rejection probability</li>
+    			        </ul>
+			          </td>
+    			    </tr></table>
+				  </section>
+				  
+				  <section>
+				    <span style="font-size:0.7em; aligned:left">
+				    <div style="width: 700px; margin-left: 400; color:black; border: 5px solid blue; border-radius: 5%/15%; background-color: #CCCCCC;">
+				    \[
+					\text{delay}:=\dfrac{t_\text{wait}+t_\text{on board}-t_\text{direct}}{t_\text{direct}}
+				    \]
+				    </div></span>
+				  </section>
+				  
+			  	  <section>
+				    <header>
+				      <h4>rejection policy + maximum delay</h4>
+				    </header>
+				    .. see notebook
+				  </section>				    
+				    
+				  <section>
+				    <span style="font-size:0.7em; aligned:left">
+				    \[
+					\begin{aligned}
+					\text{prize per customer }&\propto\overbrace{\text{total driven distance}}^\text{total cost}\cdot\overbrace{\dfrac{d_i}{\text{total requested distance}}}		^\text{contribution of customer i}\\~\\
+					&=\underbrace{d_i}_\text{private car price}\cdot\underbrace{\dfrac{\text{total driven distance}}{\text{total requested distance}}}_{=:\rho}
+					\end{aligned}
+				    \]
+				    </span>
+				    <div class="fragment" style="width: 500px; font-size:0.5em; margin-left: 500; margin-top:10px; color:black; border: 5px solid blue; border-radius: 5%/15%; background-color: #CCCCCC;">
+				    \[
+				    \rho=\dfrac{\delta_\text{system}}{\langle b\rangle}=:\text{"driven distance"}
+				    \]</span>
+				  </section>
+				  
+				</section>
+				
+				
+				<section> <!-- nondimensionalization -->
+				  <header>
+				  <h4>Nondimensional demand and supply</h4>
+				  </header>
+				    
+				    
+    			    <table><tr>
+    			      <td>
+    			      <span style="font-size:0.5em; aligned:center">
+				    <div style="width: 400px; margin-left: 140; color:black; border: 5px solid blue; border-radius: 5%/15%; background-color: #CCCCCC;">
+				    \[
+					t_0:=\langle t_w+t_d\rangle
+				    \]
+				    </div></span>
+				      <iframe data-src="figures/broitzem.png" height="600" width="1100"></iframe></td>
+			          <td style="vertical-align: top" class="fragment" data-fragment-index="0">	
+        			    supply:     
+				  	    <span>
+				  	      \[\tiny{\begin{aligned}
+					      &N_0:= \text{#buses such that } t_d=t_w\\
+					      &\text{supply }:=\text{#buses}/N_0\\
+					      &\text{here: }N_0=1\\
+					      &\Rightarrow\text{supply = #buses}
+					      \end{aligned}}\]
+				  	    </span>
+			          </td>
+			          <td style="vertical-align: top" class="fragment" data-fragment-index="1">	
+        			    demand:      
+				  	    <span>
+				  	      \[\tiny{\begin{aligned}
+					      &\text{frequency}\cdot t_0 = \langle\text{#driving taxis}\rangle\\
+					      &\text{demand }:=\text{frequency}\cdot t_0/N_0\\
+					      &\text{here: }N_0=1\\
+					      &\Rightarrow\text{demand = frequency}\cdot t_0
+					      \end{aligned}}\]
+				  	    </span>
+			          </td>
+    			    </tr></table>
+    			    
+				</section>
+			
+			
+				<section> <!-- the maps -->
+    			  <h4>Dynamics on 3 different maps</h4>
+    			  <table><tr>
+    			    <td><iframe data-src="figures/broitzem.png" height="350" width="600"></iframe>
+   			            <ul style="margin-bottom: 1cm; margin-top: 2cm; margin-right: 3cm; margin-left: 3cm; vertical-align: top;">		
+        			    results: system..    
+        			    <li>capacity</li>
+        			    <li>efficiency</li>
+        			    <li>quality</li>
+    			        </ul>
+   			        </td>			        
+    			  </tr>
+    			  <tr>
+    			    <td><iframe data-src="figures/goe_citycenter.png" height="350" width="600"></iframe>
+    			    <iframe data-src="figures/1.png" height="350" width="600"></iframe></td>			        
+    			  </tr>
+    			  </table>
+				</section>
+				
+                 <!-- rejections + capacity -->
+				<section>
+				<section>  <!-- rejection heat map -->
+				  <header><h4>system capacity</h4></header>
+				  <iframe data-src="figures/rejection_heatmap_delay3_logarithmic_spacing_goe_citycenter.png" height="600" width="800"></iframe>
+				</section>
+                 
+				<section>  <!-- loglog maxfrequency over supply -->
+				  <header><h4>system capacity</h4></header>
+				  <iframe data-src="figures/max_frequency_delay3_logarithmic_spacing_goe_citycenter.png" height="600" width="800"></iframe>
+				</section>
+                 
+				<section>  <!-- extra demand per supply -->
+				  <header><h4>system capacity</h4></header>
+				  <iframe data-src="figures/df_dN_delay3_logarithmic_spacing_goe_citycenter.png" height="600" width="800"></iframe>
+				</section>
+				
+				<section>  <!-- loglog maxfrequency over supply -->
+				  <header><h4>system capacity</h4></header>
+				  <iframe data-src="figures/rejection_delay3_logarithmic_spacing_goe_citycenter.png" height="600" width="800"></iframe>
+				</section>
+				</section>
+				
+				
+                 <!-- efficiency; driven distance -->
+				<section>
+				<section>  <!-- rejection heat map -->
+				  <header><h4>system efficiency</h4></header>
+				  <iframe data-src="figures/driven_distance_delay3_logarithmic_spacing_goe_citycenter.png" height="600" width="800"></iframe>
+				</section>
+                 
+				<section>  <!-- loglog maxfrequency over supply -->
+				  <header><h4>system efficiency</h4></header>
+				  <iframe data-src="figures/driven_distance_vs_demand_delay3_logarithmic_spacing_goe_citycenter.png" height="600" width="800"></iframe>
+				</section>
+				</section>
+				
+				
+                 <!-- efficiency; driven distance -->
+				<section>
+				<section>  <!-- rejection heat map -->
+				  <header><h4>system quality</h4></header>
+				  <iframe data-src="figures/delay_heatmap_delay3_logarithmic_spacing_goe_citycenter.png" height="600" width="800"></iframe>
+				</section>
+                 
+				<section>  <!-- loglog maxfrequency over supply -->
+				  <header><h4>system quality</h4></header>
+				  <iframe data-src="figures/delay_delay3_logarithmic_spacing_goe_citycenter.png" height="600" width="800"></iframe>
+				</section>
+				</section>
+				
+				
+				<section>  <!-- show plots -->
+				  <header><h4>universality across maps</h4></header>
+				</section>
+				
+				
+				<section> <!-- conclusions -->
+				  <h4>Conclusion</h4>
+				  <ul>
+				    <li>more demand per supply      &rArr; better quality, higher served percentage</li>
+				    <li>more demand, fixed supply   &rArr; more efficient</li>
+				    <li>efficiency power law of demand</li>
+				    <li>reasonable universality across maps</li>
+				  </ul>
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script src="../../plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+          		slideNumber: true,
+				hash: true,
+				width: 1500,
+                height: 800,
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>

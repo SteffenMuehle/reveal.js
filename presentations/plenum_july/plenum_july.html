@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css" id="highlight-theme">
+		
+		<style>
+    		header {
+    			  padding: 40px;
+    		}
+    		
+    		ul {
+    		  font-size: 32px;
+    		  font-color: white;
+    		}
+    		
+    		table {
+    		  color: white;
+    		}
+		</style>
+		
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			
+			
+				<section> <!-- 1st slide -->
+				  <header>
+      				    <h2>Progress July</h2>
+				  </header>
+				  <ol>
+				    <li>Ride Pooling theory: Overview</li>
+				    <li>Occupancy from Shareability</li>
+				    <li>Modified Ellipse Model</li>
+				  </ol>
+				</section>			    
+				    
+				    
+				<section>
+				  <span style="font-size:0.7em; aligned:left">
+				  <span style="color:blue">Tachet et al. - shareability:</span>
+				    \[
+					\begin{aligned}
+					S(L)&=P(k>0)=1-P(k=0)\\
+					&=1-\dfrac{1}{2L^3}(1-e^{-L})(1-(1+2L)e^{-2L})
+					\end{aligned}
+				    \]
+				    
+				  Tachet et al. - shareability:
+				    \[
+					\begin{aligned}
+					P(k)
+					\end{aligned}
+				    \]
+				  </span>
+				</section>  
+				    
+				    
+				<section>
+				  <span style="font-size:0.7em; aligned:left">
+				  <span style="color:blue">Tachet et al. - shareability:</span>
+				    \[
+					\begin{aligned}
+					S(L)&=P(k>0)=1-P(k=0)\\
+					&=1-\dfrac{1}{2L^3}(1-e^{-L})(1-(1+2L)e^{-2L})
+					\end{aligned}
+				    \]
+				    
+				  Tachet et al. - shareability:
+				    \[
+					\begin{aligned}
+					S(L)&=P(k>0)=1-P(k=0)\\
+					&=1-\dfrac{1}{2L^3}(1-e^{-L})(1-(1+2L)e^{-2L})
+					\end{aligned}
+				    \]
+				  </span>
+				</section>
+				
+				
+			</div>
+		</div>
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script src="../../plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+          		slideNumber: true,
+				hash: true,
+				width: 1500,
+                height: 800,
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>
