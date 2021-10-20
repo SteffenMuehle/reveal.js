@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css" id="highlight-theme">
+
+		<style>
+    		header {
+    			  padding: 40px;
+    		}
+
+    		ul {
+    		  font-size: 32px;
+    		  font-color: white;
+    		}
+
+    		table {
+    		  color: white;
+    		}
+		</style>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+			<section>
+				<header>
+								<h2>Progress May</h2>
+				</header>
+				<ol>
+					<li>State of simulations</li>
+					<li>Simulation results</li>
+					<li><a href="file:///home/smuehle/Codes/reveal.js/presentations/progress_october/plenum_may.html#/6">link text</a></li>
+				</ol>
+			</section>
+
+
+				<section>
+				    			  <table><tr>
+				   <td width="550" style="border:0 none;" colspan="4"><img src="figures/RPdemo1.png" height="300" width="300" align="center"></td>
+				   </tr><tr>
+					 <td width="550">private car<br>
+						   <img src="figures/RPdemo2.png" height="220" width="220"><br>
+							 <font size="6" color="green">convenient</font><br>
+							 <font size="6" color="red">inefficient</font>
+					 </td>
+					 <td width="550">taxi<br>
+						   <img src="figures/RPdemo3.png" height="220" width="220"><br>
+							 <font size="6" color="green">convenient</font><br>
+							 <font size="6" color="red">inefficient</font>
+					 </td>
+					 <td width="550">Line service<br>
+						   <img src="figures/RPdemo5.png" height="220" width="220"><br>
+							 <font size="6" color="red">inconvenient</font><br>
+							 <font size="6" color="green">efficient</font>
+					 </td>
+					 <td width="550">Ride pooling <font size="4">(shared taxi)</font><br>
+						   <img src="figures/RPdemo4.png" height="220" width="220"><br>
+							 <font size="6">convenient?</font><br>
+							 <font size="6">efficient?</font>
+					 </td>
+				   </tr></table>
+				</section>
+
+					<section>
+					  <iframe data-src="figures/Bartolo.png" height="1200" width="1200"></iframe>
+					</section>
+
+				<section>
+				  <h3>State of simulations</h3>
+
+    			  <table><tr>
+    			    <td><iframe data-src="videos/gif_broitzem_either_fixed.webm" height="600" width="1100" type="video/webm"></iframe></td>
+
+			        <td style="vertical-align: top" class="fragment" data-fragment-index="0">
+   			          <div class="r-stack">
+    			      <span class="fragment fade-out" data-fragment-index="2">
+        			    <ul style="margin-bottom: 1cm; margin-top: 2cm; margin-right: 3cm;">
+        			      pro:
+        			      <li>real street network</li>
+        			      <li>obey speed limit</li>
+        			      <li>emergent dynamics</li>
+    			        </ul></br>
+        			    <ul class="fragment" data-fragment-index="1">
+        			      con:
+        			      <!-- <li>pickup/dropoff<br>uncorrelated + instantaneous + anywhere</li> -->
+        			      <li>no traffic (lights)</li>
+        			      <li>requested trip ASAP</li>
+    			        </ul>
+    			      </span>
+   			          <span class="fragment" data-fragment-index="2">
+        			    <ul style="margin-bottom: 1cm; margin-top: 2cm; margin-right: 5cm">
+        			      parameters:
+        			      <li class="fragment" data-fragment-index="3">number of buses</li>
+        			      <li class="fragment" data-fragment-index="4">request frequency</li>
+        			      <li class="fragment" data-fragment-index="5"><span class="fragment strike" data-fragment-index="6">dispatcher details</span></li>
+    			        </ul></br>
+        			    <ul>
+        			      observables:
+        			      <li class="fragment" data-fragment-index="7">rejection prob.</li>
+        			      <li class="fragment" data-fragment-index="8">delay time</li>
+        			      <li class="fragment" data-fragment-index="9">driven distance</li>
+    			        </ul>
+    			      </span>
+    			      </div>
+			        </td>
+
+    			  </tr></table>
+				</section>
+
+
+				<section>
+  				  <section>
+				    <img data-src="figures/rejectionProb_squared_delay.png" width="700">
+				  </section>
+
+				  <section>
+				    <span style="font-size:0.7em; aligned:left">
+				    <div style="width: 700px; margin-left: 400; color:black; border: 5px solid blue; border-radius: 5%/15%; background-color: #CCCCCC;">
+				    \[
+					\text{delay time}:=\dfrac{t_\text{wait}+t_\text{on board}-t_\text{direct}}{t_\text{direct}}
+				    \]
+				    </div></span>
+				  </section>
+
+  				  <section>
+				    <img data-src="figures/delayTime_squared_delay.png" width="700">
+				  </section>
+
+				  <section>
+				    <span style="font-size:0.7em; aligned:left">
+				    \[
+					\begin{aligned}
+					\text{prize per customer }&\propto\overbrace{\text{total driven distance}}^\text{total cost}\cdot\overbrace{\dfrac{d_i}{\text{total requested distance}}}		^\text{contribution of customer i}\\~\\
+					&=\underbrace{d_i}_\text{private car price}\cdot\underbrace{\dfrac{\text{total driven distance}}{\text{total requested distance}}}_{=:\rho}
+					\end{aligned}
+				    \]
+				    </span>
+				    <div class="fragment" style="width: 400px; font-size:0.5em; margin-left:950; margin-top:50px; color:black; border: 5px solid blue; border-radius: 5%/15%; background-color: #CCCCCC;">
+				    \[
+				    \rho=\dfrac{\delta_\text{system}}{\langle b\rangle}=:\text{"driven distance"}
+				    \]</span>
+				  </section>
+
+  				  <section>
+				    <img data-src="figures/drivenDistance_squared_delay.png" width="700">
+				  </section>
+
+				</section>
+
+
+				<section>
+				  <iframe src="http://localhost:7101/" style="background-color: Snow; height: 800px; width: 1200px"></iframe>
+				</section>
+
+
+				<section>
+				  <h3>observations</h3>
+				  <ul>
+				    <li>system capacity &#8733; buses</li>
+				    <li>"fast" regime at low demand</li>
+				    <li>"efficient" regime at high demand</li>
+				    <li>upscaling system is good</li>
+				  </ul>
+				</section>
+
+
+				<section>
+				    <table style="width:1450px; margin-right: 100px;margin-bottom:50px"><tr>
+				    <td>
+				  	  <div class="r-stack">
+				  	    <iframe src="http://localhost:8105/" style="background-color: Snow; height: 775px; width: 1000px" class="fragment" data-fragment-index="4"></iframe>
+				  	    <img src="figures/logistic_function.png" class="fragment fade-out" data-fragment-index="4">
+				  	  </div>
+				  	</td>
+				  	<td style="vertical-align: top;">
+				  	  <span>
+				  	    \[\tiny{
+					    \text{wanted: map }\{r_n\}_{n\in\mathcal{N}}
+					    }\]
+				  	  </span>
+				  	  <div class="r-stack">
+				  	    <span class="fragment fade-out" data-fragment-index="1">
+				  	    \[\tiny{
+					    r_{n}=\dfrac{r_\text{max}}{1+\exp(-\dfrac{p_n}{p_0})}
+					    }\]
+					    </span>
+				  	    <span class="fragment" data-fragment-index="1">
+				  	    \[\tiny{
+					    r_{n+1}=\dfrac{r_\text{max}}{1+\exp(-\dfrac{p_n+\Delta p}{p_0})}
+					    }\]
+					    </span>
+					  </div>
+				  	  <span class="fragment" data-fragment-index="2" style="margin-top: -50px;">
+				  	    \[\tiny{
+					    \Delta p=\dfrac{1-I}{1+I}
+					    }\]
+				  	  </span>
+				  	  <span class="fragment" data-fragment-index="3">
+
+				  	  <div class="r-stack">
+				  	    <span class="fragment fade-out" data-fragment-index="4">
+				  	    \[\tiny{
+					    I=\overbrace{\left(\dfrac{\Delta t}{\Delta t_0}\right)^{\epsilon_t}}^\text{time}\cdot
+					          \overbrace{\left(\dfrac{\rho}{\rho_0}\right)^{\epsilon_\rho}}^\text{price}
+					    }\]
+					    </span>
+				  	    <span class="fragment fade-in-then-out" data-fragment-index="4">
+				  	    \[\tiny{
+					    I=\overbrace{\left(\dfrac{\Delta t}{\Delta t_0}\right)^{1-\gamma}}^\text{time}\cdot
+					          \overbrace{\left(\dfrac{\rho}{\rho_0}\right)^{\gamma}}^\text{price}
+					    }\]
+					    </span>
+				  	    <span class="fragment" data-fragment-index="5">
+				  	    \[\tiny{
+					    I=\overbrace{\left(\dfrac{\Delta t}{\Delta t_0}\right)^{1-\gamma}}^\text{time}\cdot
+					          \overbrace{\left(\dfrac{\rho+N\cdot\text{bus_cost}}{\rho_0}\right)^{\gamma}}^\text{price}
+					    }\]
+					    </span>
+					  </div>
+
+
+				  	  </span>
+				  	  <div style="width: 340px; height: 200; color:black; border: 5px solid blue; border-radius: 5%/5%; background-color: #CCCCCC; font-size: 18px">
+				  	    \[\begin{aligned}
+					    r\,&\text{: request frequency}\\
+					    p\,&\text{: popularity score }\\
+					    \Delta p\,&\text{: popularity increase }\in[-1,1]\\
+					    I\,&\text{: inconvenience }>0\\
+					    \Delta t\,&\text{: delay time }>0\\
+					    \rho\,&\text{: driven distance }>0\\
+					    \end{aligned}\]
+				  	  </div>
+				  	</tr>
+				  	</td>
+				  </tr></table>
+				</section>
+
+
+				<section>
+				  <h3>observations</h3>
+				  <ul>
+				    <li>stable FP if time prioritized</li>
+				    <li>unstable FP if price prioritized</li>
+				    <li>&rArr; bifurcation in between</li>
+				    <li>bus cost &rArr; optimum fleet size</li>
+				  </ul>
+				</section>
+
+
+			</div>
+		</div>
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script src="../../plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+          		slideNumber: true,
+				hash: true,
+				width: 1500,
+                height: 800,
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>
