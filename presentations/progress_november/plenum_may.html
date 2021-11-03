@@ -35,175 +35,112 @@
 
 
 			<section>
-				<header>
-					<h2>Progress report</h2>
-				</header>
-        November '21<br>
-				Steffen Mühle
+				\[\text{What request frequency }f\text{ can }N\text{ vehicles serve?}\]
+			</section>
+
+			<section>
+				<section>
+					<table><tr>
+          <td style="vertical-align: top;">
+ 					 \[
+ 						 \begin{aligned}
+ 						 \overbrace{N\langle b\rangle}^\text{supply}\cdot \color{red}{p_\text{busy}}&=\overbrace{f\underbrace{\langle t\rangle\langle\delta\rangle}_\text{time on bus}}^\text{demand}\cdot \color{blue}{p_\text{served}}\\~\\
+ 						 f_{80}&=\underbrace{\eta}_{=\langle b\rangle/\langle\delta\rangle}\dfrac{N}{\color{blue}{0.8}}\cdot\color{red}{1}
+ 						 \end{aligned}
+ 					 \]
+ 				 </td>
+			   <td width="900" height="600"><div class="r-stack">
+					 <span class="fragment fade-in-then-out">
+						 <img src="figures/RPdemo6.png" height="250" width="250" align="center">
+						 <table><tr>
+							 <td><img src="figures/RPdemo2.png" style="height: 250; width:250;" align="center"></td>
+							 <td><img src="figures/RPdemo3.png" style="height: 250; width:250;" align="center"></td>
+							 <td><img src="figures/RPdemo4.png" style="height: 250; width:250;" align="center"></td>
+						 </tr><tr>
+							 <td>car<br>\[\eta=1\]</td>
+							 <td>taxi      <br>\[\eta<1\]</td>
+							 <td>ride pooling<br>\[\eta(f,N,\dots)\]</td>
+						 </tr></table>
+				   </span>
+					 <span class="fragment fade-in-then-out"><img src="figures/november_fmaxloglog_stargrid_32_32_nodata.png" style="height: 250; width:250;" align="center"></span>
+					 <span class="fragment fade-in-then-out"><img src="figures/november_fmaxloglog_stargrid_32_32.png" style="height: 250; width:250;" align="center"></span>
+					 <span class="fragment fade-in-then-out"><img src="figures/november_fmaxloglog_maps.png" style="height: 250; width:250;" align="center"></span>
+				 </div></td>
+				 </tr></table>
+			 </section>
+
+			 <section>
+				 <img src="figures/november_efficiency.png" width="900" height="600" align="center">
+			 </section>
+
 			</section>
 
 
 			<section>
-									<table><tr>
-			   <td><img src="figures/RPdemo1.png" height="250" width="250" align="center"></td>
-         <td>
-					 \[
-						 \begin{aligned}
-						 \overbrace{N\langle b\rangle}^\text{supply}\cdot p_\text{busy}=\overbrace{f\underbrace{\langle t\rangle\langle\delta\rangle}_\text{time in bus}}^\text{demand}\cdot p_\text{served}\\~\\
-						 \end{aligned}
-					 \]
-				 </td>
-				 </tr></table>
-				 <img src="figures/RPdemo2.png" height="250" width="250" align="center">
-				 <img src="figures/RPdemo4.png" height="250" width="250" align="center">
+				\[\text{How to model }\eta(f,N,\dots)\text{ ?}\]
 			</section>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			<section>
 
 				<section>
-				    			  <table><tr>
-				   <td style="border:0 none;"></td>
-				   <td width="550" style="border:0 none;"><img src="figures/RPdemo1.png" height="250" width="250" align="center"></td>
-				   <td width="550" style="border:0 none;"><img src="figures/RPdemo6.png" height="220" width="220" align="left"></td>
-				   <td style="border:0 none; vertical-align: top;">
-				   	<ul>
-					      <li class="fragment" data-fragment-index="6">detour?</li>
-					      <li class="fragment" data-fragment-index="7">waiting time?</li>
-					      <li class="fragment" data-fragment-index="8">efficiency?</li>
-					      <li class="fragment" data-fragment-index="9">capacity?</li>
-					      <li class="fragment" data-fragment-index="10">dependencies?</li>
-    			        	</ul>
-				   </td>
-				   </tr><tr>
-					 <td width="550"><span class="fragment semi-fade-out" data-fragment-index="5"><span class="fragment" data-fragment-index="1">
-						 <font size="6">Private car</font><br>
-						 <img src="figures/RPdemo2.png" height="300" width="300"><br>
-						<font size="5" color="green">very convenient. </font><font size="5" color="red">inefficient.</font>
-					 </span></td>
-					 <td width="550"><span class="fragment semi-fade-out" data-fragment-index="5"><span class="fragment" data-fragment-index="2">
-						<font size="6">Taxi</font><br>
-						<img src="figures/RPdemo3.png" height="300" width="300"><br>
-						<font size="5" color="green">convenient. </font><font size="5" color="red">inefficient.</font>
-					 </span></span></td>
-					 <td width="550"><span class="fragment" data-fragment-index="3">
-						<font size="6">Ride pooling </font><font size="4">(shared taxi)</font><br>
-						<img src="figures/RPdemo4.png" height="300" width="300"><br>
-					 </span></td>
-					 <td width="550"><span class="fragment" data-fragment-index="4">
-					 	<font size="6">Line service</font><br>
-						<img src="figures/RPdemo5.png" height="300" width="300"><br>
-					</span></span></td>
-				   </tr></table>
-				</section>
+						<table><tr><td style="vertical-align: top;">
+							  <img src="figures/flowchart1.png">
+						</td>
+						<td><span class="fragment">
+					 \[
+						 \begin{aligned}
+						 \langle Z\rangle&=\sum_{z}z\,p(z)\\
+						 &\fragapply{fragment 3}{=\sum_{z}z\sum_{y}p(z|y)p(y)}\\
+						 &\fragapply{fragment 4}{=\sum_{z}z\sum_{y}p(z|y)\sum_{x}p(y|x)p(x)}\\
+						 &\fragapply{fragment 5}{=\dots}
+						  \end{aligned}
+					 \]
+				 </span></td>
+				 </tr></table>
+ 			  </section>
 
 				<section>
-				  <img src="figures/Bartolo.png" width="1600"></iframe>
-				</section>
-
-
-				<section>
-
-    			  <table><tr>
-    			    <td><iframe data-src="videos/region2b_30_6.webm" height="600" width="1100" type="video/webm"></iframe></td>
-
-			        <td style="vertical-align: top">
-									<span class="fragment">ingredients:</span>
-        			    <ul style="margin-bottom: 1cm; margin-top: 2cm; margin-right: 3cm;">
-        			      <li class="fragment">map + #buses</li>
-        			      <li class="fragment">dispatcher (cost+rejections)</li>
-        			      <li class="fragment">request distribution</li>
-    			        </ul>
-			        </td>
-
-    			  </tr></table>
-				</section>
-
-
-				<section>
-
-						<section>
-							<h4>served percentage</h4>
-							<img data-src="figures/symposium_rejections.png" width="700">
-						</section>
-
-						<section>
-							<h4>detours</h4>
-							<img data-src="figures/symposium_detour.png" width="700">
-						</section>
-
-						<section>
-							<span style="font-size:0.7em; aligned:left">
-							\[
+						<table><tr><td style="vertical-align: top;">
+							  <img src="figures/flowchart2.png" height="800">
+						</td>
+						<td><span class="fragment">
+					 \[
+						 \begin{aligned}
+						 \langle\delta\rangle=\sum_{\delta}\delta\sum_{k}p(\delta|k)\sum_Mp(k|M)\sum_Tp(M|T)p(T)
+						  \end{aligned}
+					 \]<br>
+					\[
 						\begin{aligned}
-						\text{emissions per customer }&\propto\text{total driven distance}\cdot\overbrace{\dfrac{d_i}{\text{total requested distance}}}		^\text{contribution of customer i}\\~\\
-						&=\underbrace{d_i}_\text{private car price}\cdot\underbrace{\dfrac{\text{total driven distance}}{\text{total requested distance}}}_{=:\eta^{-1}}
-						\end{aligned}
-							\]
-							</span>
-							<table><tr><td></td><td><div class="fragment" style="width: 400px; font-size:0.5em; color:black; border: 5px solid blue; border-radius: 5%/15%; background-color: #CCCCCC;">
-							\[
-							\eta=\dfrac{\langle\text{occupancy}\rangle}{\langle\text{detour}\rangle}=:\text{"efficiency"}
-							\]</div></td></table>
-						</section>
+						&\fragapply{fragment 1}{p(T):\text{ request pattern (given)}}\\
+						&\fragapply{fragment 2}{p(M|T)=e^{-\Lambda}\dfrac{\Lambda^M}{M!}\quad\text{ where }\Lambda=f\cdot T\Rightarrow\langle M\rangle\propto f}\\
+						&\fragapply{fragment 3}{p(\delta|k):\text{ ellipse model }}\\
+						&\fragapply{fragment 4}{p(b|k):\,\,k\propto b^*\propto b}\\
+						&\fragapply{fragment 5}{\color{red}{p(k|M)\,?}}
+						 \end{aligned}
+					\]
+				 </span></td>
+				 </tr></table>
+ 			  </section>
 
-						<section>
-							<h4>efficiency</h4>
-							<img data-src="figures/symposium_efficiency.png" width="700">
-						</section>
-
-			  </section>
+			</section>
 
 
-				<section>
-
-							<section>
-								<h3>Supply-demand equation</h3>
-								..if there's time
-							</section>
-
-							<section>
-								<h4>system capacity</h4>
-								<img data-src="figures/symposium_fmax.png" width="700">
-							</section>
-
-				</section>
+			<section>
+				Given that M other users exist during my trip,<br>how many do I meet on the bus?
+			</section>
 
 
-				<section>
-					<table><tr><td>
-				  <h4>Summary</h4><br>
-				  <ul>
-				    <li class="fragment">more demand = better</li>
-					  <li class="fragment">a lot of parameters + no axioms</li>
-				    <li class="fragment">looking for universalities / scaling laws</li>
-				  </ul>
-			  	</td><td></td><td>
-				  <h4 class="fragment">Projects</h4><br>
-				  <ul>
-				    <li class="fragment">waiting times via volume growth on graphs (<font color="green">David</font>)</li>
-					  <li class="fragment">shareability as function of demand (<font color="green">Sebastian</font>)</li>
-					  <li class="fragment">user time constraints + pre-planning (<font color="green">Ruben</font>)</li>
-					  <li class="fragment">where to add line services? (<font color="green">Stephan</font>)</li>
-					  <li class="fragment">the bimodal system (<font color="green">Puneet, Helge</font>)</li>
-				  </ul>
-
-				  </td>
-	  			</tr></table>
-				</section>
+			<section>
+				 \[
+					 p(k|M)=\binom{M}{k}\prod_{i=0}^{k-1}\tilde{p}_i\cdot\left(p_\text{fail}\right)^{M-k}\\
+					 \text{where }\tilde{p}_i=\text{ prob. of successful insertion after i previous insertions}
+				 \]
+				 <table><tr>
+					 <td class="fragment" ><img src="figures/sketch.png" height="300" align="center"></td><td></td>
+					 <td class="fragment" style="vertical-align: top;">hypothesis:<br>\[\eta=\dfrac{\langle b\rangle(k(f))}{\langle\delta\rangle(k(f))}\propto f^{0.1}\]</td>
+				 </tr></table>
+			</section>
 
 			</div>
 		</div>
@@ -237,5 +174,6 @@
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
 			});
 		</script>
+
 	</body>
 </html>
