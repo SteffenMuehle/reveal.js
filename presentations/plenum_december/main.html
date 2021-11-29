@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css" id="highlight-theme">
+
+		<style>
+    		header {
+    			  padding: 40px;
+    		}
+
+    		ul {
+    		  font-size: 32px;
+    		  font-color: white;
+    		}
+
+    		table {
+    		  color: white;
+    		}
+		</style>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<!--- 1: RidePooling --->
+			<section>
+										<table><tr>
+					 <td style="border:0 none;"></td>
+					 <td width="550" style="border:0 none;"><img src="figures/RPdemo1.png" height="250" width="250" align="center"></td>
+					 <td width="550" style="border:0 none;"><img src="figures/RPdemo6.png" height="220" width="220" align="left"></td>
+					 <td style="border:0 none; vertical-align: top;">
+						<ul>
+								<li class="fragment" data-fragment-index="6">detour?</li>
+								<li class="fragment" data-fragment-index="7">waiting time?</li>
+								<li class="fragment" data-fragment-index="8">efficiency?</li>
+								<li class="fragment" data-fragment-index="9">capacity?</li>
+								<li class="fragment" data-fragment-index="10">dependencies?</li>
+										</ul>
+					 </td>
+					 </tr><tr>
+					 <td></td>
+					 <td width="550"><span class="fragment semi-fade-out" data-fragment-index="5"><span class="fragment" data-fragment-index="1">
+						 <font size="6">Private car</font><br>
+						 <img src="figures/RPdemo2.png" height="300" width="300"><br>
+						<font size="5" color="green">very convenient. </font><font size="5" color="red">inefficient.</font>
+					 </span></td>
+					 <td width="550"><span class="fragment" data-fragment-index="3">
+						<font size="6">Ride pooling </font><font size="4">(shared taxi)</font><br>
+						<img src="figures/RPdemo4.png" height="300" width="300"><br>
+					 </span></td>
+					 <td width="550"></td>
+					 </tr></table>
+			</section>
+
+
+<!--- 2: Question --->
+			<section>
+				\[\begin{aligned}
+				&\text{How many buses (}N\text{) do we need to serve a request frequency }f\text{?}
+				\\~\\
+				\Leftrightarrow\quad &\text{What request frequency }f\text{ can }N\text{ buses serve?}
+				\end{aligned}\]
+			</section>
+
+
+<!--- 3:  simulation + define f_80 --->
+<!--- 4:  dispatcher power laws --->
+<!--- 5:  map power laws --->
+<!--- 6:  motivation: need theory --->
+			<section>
+				Why is there a power law?<br><br>
+				Can we model the function \(f_{80}(N)\)?
+			</section>
+
+
+<!--- 7:  supply-demand --->
+<!--- 8:  flowchart method --->
+<!--- 9:  p(k|m) --->
+<!--- 10: p_tilde --->
+<!--- 11: model power law!! --->
+<!--- 12: interpretation --->
+
+
+
+
+
+			<section>
+				<section>
+					<table><tr>
+          <td style="vertical-align: top;">
+ 					 \[
+ 						 \begin{aligned}
+ 						 \overbrace{N\langle b\rangle}^\text{supply}\cdot \color{red}{p_\text{busy}}&=\overbrace{f\underbrace{\langle t\rangle\langle\delta\rangle}_\text{time on bus}}^\text{demand}\cdot \color{blue}{p_\text{served}}\\~\\
+ 						 f_{80}&=\underbrace{\eta}_{=\langle b\rangle/\langle\delta\rangle}\dfrac{N}{\color{blue}{0.8}}\cdot\color{red}{1}
+ 						 \end{aligned}
+ 					 \]
+ 				 </td>
+			   <td width="900" height="600"><div class="r-stack">
+					 <span class="fragment fade-in-then-out">
+						 <img src="figures/RPdemo6.png" height="250" width="250" align="center">
+						 <table><tr>
+							 <td><img src="figures/RPdemo2.png" style="height: 250; width:250;" align="center"></td>
+							 <td><img src="figures/RPdemo3.png" style="height: 250; width:250;" align="center"></td>
+							 <td><img src="figures/RPdemo4.png" style="height: 250; width:250;" align="center"></td>
+						 </tr><tr>
+							 <td>car<br>\[\eta=1\]</td>
+							 <td>taxi      <br>\[\eta<1\]</td>
+							 <td>ride pooling<br>\[\eta(f,N,\dots)\]</td>
+						 </tr></table>
+				   </span>
+					 <span class="fragment fade-in-then-out"><img src="figures/november_fmaxloglog_stargrid_32_32_nodata.png" style="height: 250; width:250;" align="center"></span>
+					 <span class="fragment fade-in-then-out"><img src="figures/november_fmaxloglog_stargrid_32_32.png" style="height: 250; width:250;" align="center"></span>
+					 <span class="fragment fade-in-then-out"><img src="figures/november_fmaxloglog_maps.png" style="height: 250; width:250;" align="center"></span>
+				 </div></td>
+				 </tr></table>
+			 </section>
+
+			 <section>
+				 <img src="figures/november_efficiency.png" width="900" height="600" align="center">
+			 </section>
+
+			</section>
+
+
+			<section>
+				\[\text{How to model }\eta(f,N,\dots)\text{ ?}\]
+			</section>
+
+
+			<section>
+
+				<section>
+						<table><tr><td style="vertical-align: top;">
+							  <img src="figures/flowchart1.png">
+						</td>
+						<td><span class="fragment">
+					 \[
+						 \begin{aligned}
+						 \langle Z\rangle&=\sum_{z}z\,p(z)\\
+						 &\fragapply{fragment 3}{=\sum_{z}z\sum_{y}p(z|y)p(y)}\\
+						 &\fragapply{fragment 4}{=\sum_{z}z\sum_{y}p(z|y)\sum_{x}p(y|x)p(x)}\\
+						 &\fragapply{fragment 5}{=\dots}
+						  \end{aligned}
+					 \]
+				 </span></td>
+				 </tr></table>
+ 			  </section>
+
+				<section>
+						<table><tr><td style="vertical-align: top;">
+							  <img src="figures/flowchart2.png" height="800">
+						</td>
+						<td><span class="fragment">
+					 \[
+						 \begin{aligned}
+						 \langle\delta\rangle=\sum_{\delta}\delta\sum_{k}p(\delta|k)\sum_Mp(k|M)\sum_Tp(M|T)p(T)
+						  \end{aligned}
+					 \]<br>
+					\[
+						\begin{aligned}
+						&\fragapply{fragment 1}{p(T):\text{ request pattern (given)}}\\
+						&\fragapply{fragment 2}{p(M|T)=e^{-\Lambda}\dfrac{\Lambda^M}{M!}\quad\text{ where }\Lambda=f\cdot T\Rightarrow\langle M\rangle\propto f}\\
+						&\fragapply{fragment 3}{p(\delta|k):\text{ ellipse model }}\\
+						&\fragapply{fragment 4}{p(b|k):\,\,k\propto b^*\propto b}\\
+						&\fragapply{fragment 5}{\color{red}{p(k|M)\,?}}
+						 \end{aligned}
+					\]
+				 </span></td>
+				 </tr></table>
+ 			  </section>
+
+			</section>
+
+
+			<section>
+				Given that M other users exist during my trip,<br>how many do I meet on the bus?
+			</section>
+
+
+			<section>
+				 \[
+					 p(k|M)=\binom{M}{k}\prod_{i=0}^{k-1}\tilde{p}_i\cdot\left(p_\text{fail}\right)^{M-k}\\
+					 \text{where }\tilde{p}_i=\text{ prob. of successful insertion after i previous insertions}
+				 \]
+				 <table><tr>
+					 <td class="fragment" ><img src="figures/sketch.png" height="300" align="center"></td><td></td>
+					 <td class="fragment" style="vertical-align: top;">hypothesis:<br>\[\eta=\dfrac{\langle b\rangle(k(f))}{\langle\delta\rangle(k(f))}\propto f^{0.1}\]</td>
+				 </tr></table>
+			</section>
+
+			</div>
+		</div>
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script src="../../plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+          		slideNumber: true,
+				hash: true,
+				width: 1500,
+                height: 800,
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+
+	</body>
+</html>
