@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css" id="highlight-theme">
+
+		<style>
+    		header {
+    			  padding: 40px;
+    		}
+
+    		ul {
+    		  font-size: 32px;
+    		  font-color: white;
+    		}
+
+    		table {
+    		  color: white;
+    		}
+		</style>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+
+			<section>
+				    			  <table><tr>
+				   <td style="border:0 none;"></td>
+				   <td width="550" style="border:0 none;"><img src="figures/RPdemo1.png" height="250" width="250" align="center"></td>
+				   <td width="550" style="border:0 none;"><img src="figures/RPdemo6.png" height="220" width="220" align="left"></td>
+				   <td style="border:0 none; vertical-align: top;">
+				   	<ul>
+					      <li class="fragment" data-fragment-index="6">detour?</li>
+					      <li class="fragment" data-fragment-index="7">waiting time?</li>
+					      <li class="fragment" data-fragment-index="8">efficiency?</li>
+					      <li class="fragment" data-fragment-index="9">capacity?</li>
+					      <li class="fragment" data-fragment-index="10">dependencies?</li>
+    			        	</ul>
+				   </td>
+				   </tr><tr>
+					 <td></td>
+					 <td width="550"><span class="fragment semi-fade-out" data-fragment-index="5"><span class="fragment" data-fragment-index="1">
+						 <font size="6">Private car</font><br>
+						 <img src="figures/RPdemo2.png" height="300" width="300"><br>
+						<font size="5" color="green">very convenient. </font><font size="5" color="red">inefficient.</font>
+					 </span></td>
+					 <td width="550"><span class="fragment" data-fragment-index="3">
+						<font size="6">Ride pooling </font><font size="4">(shared taxi)</font><br>
+						<img src="figures/RPdemo4.png" height="300" width="300"><br>
+					 </span></td>
+					 <td width="550"></td>
+				   </tr></table>
+			</section>
+
+
+			<section>
+
+							<section>
+			    			  <table><tr>
+			    			    <td><iframe data-src="videos/region2b_30_6.webm" height="600" width="1100" type="video/webm"></iframe></td>
+
+						        <td style="vertical-align: top">
+												<span class="fragment">ingredients:</span>
+			        			    <ul style="margin-bottom: 1cm; margin-top: 2cm; margin-right: 3cm;">
+			        			      <li class="fragment">map + #buses</li>
+			        			      <li class="fragment">dispatcher (cost+rejections)</li>
+			        			      <li class="fragment">request distribution</li>
+			    			        </ul>
+						        </td>
+			    			  </tr></table>
+							</section>
+
+							<section><table><tr><td>
+									<img src="figures/flowchart2.png" height="800">
+								</td><td style="vertical-align: top">
+								 \[
+									 \begin{aligned}
+									 \langle\delta\rangle=\sum_{\delta}\delta\underbrace{\sum_{k}p(\delta|k)\underbrace{\sum_Mp(k|M)\underbrace{\sum_Tp(M|T)p(T)}_{p(M)}}_{p(k)}}_{p(\delta)}
+									  \end{aligned}
+								 \]
+							 </td></tr></table>
+							</section>
+
+				</section>
+
+
+				<section>
+				  <ul>
+				    <li>waiting times via volume growth on graphs (<font color="green">David</font>)</li>
+					  <li>shareability as function of demand (<font color="green">Sebastian</font>)</li>
+					  <li>user time constraints + pre-planning (<font color="green">Ruben</font>)</li>
+					  <li>where to add line services? (<font color="green">Stephan</font>)</li>
+					  <li>the bimodal system (<font color="green">Puneet, Helge</font>)</li>
+					  <li>continue David's thesis (<font color="red">?</font>)</li>
+					  <li>time series analysis (<font color="red">?</font>)</li>
+					  <li>effect of rush hours (<font color="red">?</font>)</li>
+				  </ul>
+				</section>
+
+
+				<section>
+				  <h4>Waiting times</h4>
+					.. show thesis
+				</section>
+
+
+				<section>
+				  <h4>Time series analysis</h4><br>
+				  Given a simulated time series of an observable such as \(b(t)\), what are its..
+					<ul>
+					<li>mean</li>
+					<li>variance</li>
+					<li>autocorrelation function?</li>
+				</ul><br>
+					How do they depend on system parameters?<br>
+					Cross-correlations with other observables (detour, rejection rate, waiting times, ...)?
+				</section>
+
+
+				<section>
+				  <h4>Rush hours</h4>
+					<ul>
+					<li>implement time-inhomogeneous demand</li>
+					<li>quantify robustness in peak-times</li>
+					<li>identify strategies?</li>
+					</ul>
+
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script src="../../plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+          		slideNumber: true,
+				hash: true,
+				width: 1500,
+                height: 800,
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>
