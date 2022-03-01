@@ -1,0 +1,417 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css" id="highlight-theme">
+
+		<style>
+    		header {
+    			  padding: 40px;
+    		}
+
+    		ul {
+    		  font-size: 32px;
+    		  font-color: white;
+    		}
+
+    		table {
+    		  color: white;
+    		}
+
+			* {box-sizing:border-box}
+
+			/* Slideshow container */
+			.slideshow-container {
+			max-width: 1000px;
+			position: relative;
+			margin: auto;
+			}
+
+			/* Hide the images by default */
+			.mySlides {
+			display: none;
+			}
+
+			/* Next & previous buttons */
+			.prev, .next {
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			width: auto;
+			margin-top: -22px;
+			padding: 16px;
+			color: white;
+			font-weight: bold;
+			font-size: 18px;
+			transition: 0.6s ease;
+			border-radius: 0 3px 3px 0;
+			user-select: none;
+			}
+
+			/* Position the "next button" to the right */
+			.next {
+			right: 0;
+			border-radius: 3px 0 0 3px;
+			}
+
+			/* On hover, add a black background color with a little bit see-through */
+			.prev:hover, .next:hover {
+			background-color: rgba(0,0,0,0.8);
+			}
+
+			/* Caption text */
+			.text {
+			color: #f2f2f2;
+			font-size: 15px;
+			padding: 8px 12px;
+			position: absolute;
+			bottom: 8px;
+			width: 100%;
+			text-align: center;
+			}
+
+			/* Fading animation */
+			.fade {
+			-webkit-animation-name: fade;
+			-webkit-animation-duration: 0.01s;
+			animation-name: fade;
+			animation-duration: 0.01s;
+			}
+
+			@-webkit-keyframes fade {
+			from {opacity: .4}
+			to {opacity: 1}
+			}
+
+			@keyframes fade {
+			from {opacity: .4}
+			to {opacity: 1}
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<section>
+	<h2> Ride Pooling efficiency</h2><br>
+	Steffen Mühle, Heidemann group<br>
+	Plenum December '21
+</section>
+
+
+<!--- 1: RidePooling --->
+<section>
+							<table><tr>
+			<td style="border:0 none;"></td>
+			<td width="550" style="border:0 none;"><img src="figures/RPdemo1.png" height="250" width="250" align="right"></td>
+			<td width="550" style="border:0 none;"><img src="figures/RPdemo6.png" height="220" width="220" align="left"></td>
+			<td style="border:0 none; vertical-align: top;"></td>
+			</tr><tr>
+			<td></td>
+			<td width="550"><span class="fragment semi-fade-out" data-fragment-index="5"><span class="fragment" data-fragment-index="1">
+				<font size="6">Private car</font><br>
+				<img src="figures/RPdemo2.png" height="300" width="300">
+			</span></td>
+			<td width="550"><span class="fragment" data-fragment-index="3">
+			<font size="6">Ride pooling </font><font size="4">(shared taxi)</font><br>
+			<img src="figures/RPdemo4.png" height="300" width="300"><br>
+			</span></td>
+			<td width="550">
+				<span class="fragment" data-fragment-index="6"><br><br><br>
+				How efficient?</span>
+			</td>
+			</tr></table>
+</section>
+
+
+<!--- 2: Question --->
+<section>
+	<img src="figures/RPdemo4.png" height="300" width="300">
+	\[
+	\begin{aligned}
+		&\text{Given a request frequency }f\text{, how many buses are needed?}\\~\\
+		\fragapply{fragment 1}{\Leftrightarrow}\quad&\fragapply{fragment 1}{\text{Given }N\text{ buses, what frequency can be served?}}\\~\\
+		&\qquad\fragapply{fragment 2}{\color{red}{\Rightarrow\quad\text{simulations + theory}}}
+	\end{aligned}
+	\]
+</section>
+
+
+<!--- 3:  simulation + define f_80 --->
+<section>
+		<table width="1500" height="400"><tr>
+			<td><iframe data-src="videos/grid_test1.webm" height="500" width="800" type="video/webm"></iframe></td>
+			<td><div class="r-stack">
+					<span class="fragment"><iframe data-src="figures/PlenumDecember_served_percentage_3.png" height="500" width="750"></iframe></span>
+				<span class="fragment"><iframe data-src="figures/PlenumDecember_served_percentage_136.png" height="500" width="750"></iframe></span>
+			</div></td>
+		</tr></table>
+</section>
+
+
+<!--- 4:  simulated power laws --->
+<section>
+	<div class="r-stack">
+		<span><iframe data-src="figures/PlenumDecember_fmax_dispatcher_trajlength.png" height="500" width="750"></iframe></span>
+				<span class="fragment"><iframe data-src="figures/PlenumDecember_fmax_dispatchers.png" height="500" width="750"></iframe></span>
+			<span class="fragment"><iframe data-src="figures/PlenumDecember_fmax_maps.png" height="500" width="750"></iframe></span>
+	</div>
+</section>
+
+
+<!--- 5:  motivation: need theory --->
+<section>
+	Can we model the function \(f_{80}(N)\) from scratch?
+</section>
+
+
+<!--- 6:  supply-demand --->
+<section>
+
+	<!--- 6.1:  apples --->
+	<section>
+			<img src="figures/apples.png" width="900">
+	</section>
+
+	<!--- 6.1:  humans --->
+	<section>
+		<div class="slideshow-container">
+	  
+			<div class="mySlides fade">
+			  <img src="figures/humans.png" height="400">
+			</div>
+		  
+			<div class="mySlides fade">
+			  <img src="figures/RPdemo4.png" height="400">
+			</div>
+		  
+			<!-- Next and previous buttons -->
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+		  </div>
+		\[
+		\fragapply{fragment 1}{\langle b\rangle:=\color{red}{\text{occupancy}=p_\text{served}\dfrac{f}{N}\cdot\langle T_\text{bus}\rangle}=:p_\text{served}\dfrac{f}{N}\cdot\langle T_\text{direct}\rangle\cdot\langle\delta\rangle}\\
+		\fragapply{fragment 2}{\Leftrightarrow\quad\boxed{f'_{80}=N\cdot\dfrac{\eta(f'_{80},N)}{0.8}}\quad\text{where}\quad\eta=\langle b\rangle/\langle\delta\rangle}
+		\]</span><br>
+	</section>
+
+</section>
+
+
+<!--- 12: test --->
+<section>
+
+	<div class="slideshow-container">
+		<img src="figures/k0.png" height="300">
+	</div>
+	<span class="fragment">
+		<div class="slideshow-container">
+	  
+			<div class="mySlides fade">
+			  <img src="figures/k1.png" height="300">
+			</div>
+		  
+			<div class="mySlides fade">
+			  <img src="figures/k2.png" height="300">
+			</div>
+		  
+			<div class="mySlides fade">
+			  <img src="figures/k3.png" height="300">
+			</div>
+		  
+			<!-- Next and previous buttons -->
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+		  </div>
+	</span>
+</section>
+
+
+<!--- 7:  Bayesian chain --->
+<section>
+	<table><tr><td style="vertical-align: top;">
+			<img src="figures/flowchart2.png" height="800">
+	</td>
+	<td><span class="fragment">
+	\[
+		\begin{aligned}
+		\langle\eta\rangle=\int\,\text{d}\eta\,\eta\sum_{k}p(\eta|k)\sum_Mp(k|M)p(M)
+		\end{aligned}
+	\]<br>
+	\[
+		\begin{aligned}
+		&\fragapply{fragment 1}{p(T):\text{ request pattern (given)}}\\
+		&\fragapply{fragment 2}{p(M|T)=e^{-\Lambda}\dfrac{\Lambda^M}{M!}\quad\text{ where }\Lambda=f\cdot T\Rightarrow\langle M\rangle\propto f}\\
+		&\fragapply{fragment 3}{p(b|k):\,\,b\approx 1+\dfrac{k}{2}}\\
+		&\fragapply{fragment 4}{p(\delta|k):\text{ ellipse model }}\\
+		&\fragapply{fragment 5}{\color{red}{p(k|M)\,?}}
+			\end{aligned}
+	\]
+	</span></td>
+	</tr></table>
+</section>
+
+
+<!--- 8:  p(k|m) --->
+<section>
+	wanted: \(p(k|M)\)<br><br>
+	<table><tr><td style="vertical-align: top;">
+		<table>
+			<tr>
+				<td></td>
+				<td align="center">k=0</td>
+				<td align="center">k=1</td>
+				<td align="center">k=2</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><img src="figures/d0.png" width="200"></td>
+				<td><img src="figures/d1.png" width="200"></td>
+				<td><img src="figures/d2.png" width="200"></td>
+			</tr>
+			<tr class="fragment">
+				<td>\(\langle d_k\rangle\)</td>
+				<td align="center">10km</td>
+				<td align="center">13km</td>
+				<td align="center">15km</td>
+			</tr>
+		</table>
+	</td><td>
+		<img class="fragment" src="figures/p_k_M.png" width="700">
+	</td></tr></table>
+	<span class="fragment">\[
+		p(k|M+1)=p(k|M)+\overbrace{p(k-1|M)\tilde{p}_{k-1}}^\text{inflow from k-1}-\overbrace{p(k|M)\tilde{p}_k}^\text{outflow to k+1}\quad\text{and}\,\, p(k|0)=\delta_{k,0}
+	\]</span>
+</section>
+
+
+<!--- 9: p_tilde --->
+<section>
+		$\boxed{\tilde{p}=p_\text{pickup}\cdot p_\text{dropoff}}$<br><br>
+		<table>
+			<tr>
+				<td style="border-right: solid 1px #fff;">
+				$p_\text{pickup}\propto\text{ellipse-area}=\dfrac{\pi}{4}d_\text{max}\cdot\sqrt{d_{\text{max}}^{2}-d_{k}^{2}}$
+				</td>
+				<td align="center">
+				$p_\text{dropoff}=\dfrac{\phi}{2\pi}$
+				</td>
+			</tr>
+			<tr>
+				<td style="vertical-align: top;border-right: solid 1px #fff;">
+					<div class="r-stack">
+					<span><img src="figures/PlenumDecember_original_ellipse.png" width="600"></span>
+				<span class="fragment"><img src="figures/PlenumDecember_later_ellipses.png" width="600"></span>
+					</div>
+				</td>
+				<td>
+				<img src="figures/PlenumDecember_dropoff.png" width="600">
+				</td>
+			</tr>
+		</table>
+</section>
+
+
+<!--- 10: model power law!! --->
+<section>
+		<img src="figures/PlenumDecember_model_curve.png" width="900">
+</section>
+
+
+<!--- 11: interpretation --->
+<section>
+	<h4>Conclusion</h4>
+	<ul>
+		<li>ride pooling more efficient for more demand
+		<li>efficiency follows weak power law
+		<li>model: emergent power law without fit parameters!
+		<li>hypothesis: \[\eta=\dfrac{\langle b\rangle(k(f))}{\langle\delta\rangle(k(f))}\propto f^{\nu}\quad\Rightarrow\quad f_{80}\propto N^{1.15}\]
+	<ul><br>
+
+	<h4>...next steps</h4>
+	<ul>
+		<li>see what goes (purely) analytically
+		<li>encode map topology (and request pattern?) in transition rates $\tilde{p}$
+		<li>prefactor quantifies map/dispatcher quality
+	<ul>
+</section>
+
+
+<!--- THE END --->
+
+			</div>
+		</div>
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script src="../../plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+          		slideNumber: true,
+				hash: true,
+				width: 1500,
+                height: 800,
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+		<script>
+			var slideIndex = 1;
+			showSlides(slideIndex);
+
+			// Next/previous controls
+			function plusSlides(n) {
+			showSlides(slideIndex += n);
+			}
+
+			// Thumbnail image controls
+			function currentSlide(n) {
+			showSlides(slideIndex = n);
+			}
+
+			function showSlides(n) {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+			if (n > slides.length) {slideIndex = 1}
+			if (n < 1) {slideIndex = slides.length}
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" active", "");
+			}
+			slides[slideIndex-1].style.display = "block";
+			dots[slideIndex-1].className += " active";
+			} 
+		</script>
+
+	</body>
+</html>
