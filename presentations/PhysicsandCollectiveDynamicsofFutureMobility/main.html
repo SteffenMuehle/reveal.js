@@ -292,45 +292,43 @@
 <section>
 	wanted: \(p(k|M)\)<br><br>
 	<table><tr><td style="vertical-align: top;">
-		<table>
-			<tr>
-				<td></td>
-				<td align="center">k=0</td>
-				<td align="center">k=1</td>
-				<td align="center">k=2</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><img src="figures/d0.png" width="200"></td>
-				<td><img src="figures/d1.png" width="200"></td>
-				<td><img src="figures/d2.png" width="200"></td>
-			</tr>
-			<tr class="fragment">
-				<td>\(\langle d_k\rangle\)</td>
-				<td align="center">10km</td>
-				<td align="center">13km</td>
-				<td align="center">15km</td>
-			</tr>
-		</table>
+		<div class="slideshow-container">
+	  
+			<div class="mySlides fade">
+			  <img src="figures/EfficiencyPaper_pkM_0.excalidraw.png" height="250">
+			</div>
+		  
+			<div class="mySlides fade">
+			  <img src="figures/EfficiencyPaper_pkM_5.excalidraw.png" height="250">
+			</div>
+		  
+			<div class="mySlides fade">
+			  <img src="figures/EfficiencyPaper_pkM.excalidraw.png" height="250">
+			</div>
+		  
+			<!-- Next and previous buttons -->
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+		</div>
 	</td><td>
-		<img class="fragment" src="figures/p_k_M.png" width="700">
+		<img class="fragment" src="figures/p_k_M.png" height="400">
 	</td></tr></table>
 	<span class="fragment">\[
-		p(k|M+1)=p(k|M)+\overbrace{p(k-1|M)\tilde{p}_{k-1}}^\text{inflow from k-1}-\overbrace{p(k|M)\tilde{p}_k}^\text{outflow to k+1}\quad\text{and}\,\, p(k|0)=\delta_{k,0}
+		p(k|M+1)=p(k|M)+\overbrace{p(k-1|M)R_{k-1}}^\text{inflow from k-1}-\overbrace{p(k|M)R_k}^\text{outflow to k+1}\quad\text{and}\,\, p(k|0)=\delta_{k,0}
 	\]</span>
 </section>
 
 
 <!--- 10: Rates R_k --->
 <section>
-		$\boxed{\tilde{p}=p_\text{pickup}\cdot p_\text{dropoff}}$<br><br>
+		$\boxed{R_k=\color{red}{p_\text{pickup}}\cdot\color{blue}{p_\text{dropoff}}}$<br><br>
 		<table>
 			<tr>
 				<td style="border-right: solid 1px #fff;">
-				$p_\text{pickup}\propto\text{ellipse-area}=\dfrac{\pi}{4}d_\text{max}\cdot\sqrt{d_{\text{max}}^{2}-d_{k}^{2}}$
+				$\color{red}{p_\text{pickup}}\propto\text{ellipse-area}=\dfrac{\pi}{4}d_\text{max}\cdot\sqrt{d_{\text{max}}^{2}-d_{k}^{2}}$
 				</td>
 				<td align="center">
-				$p_\text{dropoff}=\dfrac{\phi}{2\pi}$
+				$\color{blue}{p_\text{dropoff}}=\dfrac{\phi}{2\pi}$
 				</td>
 			</tr>
 			<tr>
