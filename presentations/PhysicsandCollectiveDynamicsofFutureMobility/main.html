@@ -105,8 +105,9 @@
 
 <section>
 	<h2>Scaling properties of ride pooling efficiency and minimum fleet size</h2><br>
-	Steffen Mühle, Heidemann group<br>
-	Max-Planck Institute for Dynamics and Self-Organization, Göttingen
+	Steffen Mühle<br><br>
+	<span style="font-size:26px;">email: steffen.muehle@ds.mpg.de</span><br>
+	<span style="font-size:26px;">Heidemann group, Max-Planck Institute for Dynamics and Self-Organization, Göttingen</span>
 </section>
 
 
@@ -119,12 +120,12 @@
 				<table>
 					<tr>
 						<td>
-							<img src="figures/SketchPrivateCar.excalidraw.png" height="300" align="right">
+							<img src="figures/SketchPrivateCar.excalidraw.png" height="300" data-fragment-index="2" class="fragment semi-fade-out">
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<img src="figures/SketchRidePooling.excalidraw.png" height="300" align="right">
+							<img src="figures/SketchRidePooling.excalidraw.png" height="300">
 						</td>
 					</tr>
 				</table>
@@ -132,11 +133,19 @@
 			<td width="200"></td>
 			<td>
 				<ol>
-					<li class="fragment">How efficient?</li>
 					<li class="fragment">Buses needed?</li>
 					<li class="fragment">Maximum request frequency?</li>
-				</ol><br><br><br>
-				<h3 class="fragment">simulation + theory</h3>
+					<li class="fragment">
+						How efficient?
+						\[
+						\eta=\dfrac{T_\text{requested}}{T_\text{driven}}
+						\fragapply{fragment 4}{=\dfrac{T_\text{bus}/T_\text{driven}}{T_\text{bus}/T_\text{requested}}}
+						\fragapply{fragment 5}{=\dfrac{\langle b\rangle}{\langle\delta\rangle}}
+						\]
+					</li>
+				</ol>
+				<br><br><br>
+				<h3 class="fragment" data-fragment-index="2">simulation + theory</h3>
 			</td>
 		</tr>
 	</table>
@@ -145,20 +154,32 @@
 
 <!--- 2:  simulation + define f_80 --->
 <section>
-	<h3>Simulations</h3>
-	<ul>
+	<h4>Simulations</h4>
+	<ul style="font-size:20px;">
 		<li>map</li>
 		<li>number of buses</li>
 		<li>dispatcher</li>
 		<li>request statistics</li>
 		<li>user constraints</li>
 	</ul>
-	<table width="1500" height="400"><tr>
-		<td><iframe src="videos/grid_test1.webm" height="500" width="800" type="video/webm"></iframe></td>
-		<td><div class="r-stack">
-			<span class="fragment"><iframe data-src="figures/PlenumDecember_served_percentage_3.png" height="500" width="750"></iframe></span>
-			<span class="fragment"><iframe data-src="figures/PlenumDecember_served_percentage_136.png" height="500" width="750"></iframe></span>
-		</div></td>
+	<table><tr>
+		<td>
+			<div class="r-stack">		
+				<span class="fragment fade-out">
+					<iframe src="videos/region3_30_3_seed_delays_long.webm" height="600" width="1000" type="video/webm"></iframe>
+				</span>
+			
+				<span class="fragment">
+				<img src="figures/stargrid_32_32_demo.png" data-fragment-index="1" height="500">
+				</span>
+			</div>
+		</td>
+		<td>
+			<div class="r-stack">
+				<span class="fragment"><iframe data-src="figures/PlenumDecember_served_percentage_3.png" height="500" width="750"></iframe></span>
+				<span class="fragment"><iframe data-src="figures/PlenumDecember_served_percentage_136.png" height="500" width="750"></iframe></span>
+			</div>
+		</td>
 	</tr></table>
 </section>
 
@@ -238,9 +259,9 @@
 			<a class="next" onclick="plusSlides(1)">&#10095;</a>
 		</div>
 		\[
-		\fragapply{fragment 1}{\langle b\rangle:=\color{red}{\text{occupancy}=p_\text{served}\dfrac{f}{N}\cdot\langle t_\text{bus}\rangle}=:p_\text{served}\dfrac{f}{N}\cdot\langle t_\text{direct}\rangle\cdot\langle\delta\rangle}\\
-		\fragapply{fragment 2}{\Leftrightarrow\quad\boxed{\hat{f}=N\cdot\eta(\hat{f},N)\cdot\dfrac{p_\text{non-idle}}{p_\text{served}}}
-		\quad\text{where}\quad\eta=\dfrac{\langle b\rangle_\text{non-idle}}{\langle\delta\rangle}}
+		\fragapply{fragment 1}{\color{red}{\langle b\rangle=p_\text{served}\dfrac{f}{N}\cdot\langle t_\text{bus}\rangle}=:p_\text{served}\dfrac{f}{N}\cdot\langle t_\text{direct}\rangle\cdot\langle\delta\rangle}\\
+		\fragapply{fragment 2}{\Leftrightarrow\quad\boxed{\hat{f}=N\cdot\eta(\hat{f},N)\cdot\dfrac{p_\text{non-empty}}{p_\text{served}}}
+		\quad\text{where}\quad\eta=\dfrac{\langle b\rangle_\text{non-empty}}{\langle\delta\rangle}}
 		\]</span><br>
 		<!--\fragapply{fragment 3}{=\dfrac{T_\text{bus}/T_\text{driven}}{T_\text{bus}/T_\text{requested}}}
 		-->
@@ -272,7 +293,7 @@
 
 	<section>
 		<table><tr><td style="vertical-align: top;">
-			<img src="figures/BayesianFlowchart.excalidraw.png" height="600">
+			<img src="figures/BayesianFlowchart.excalidraw.png" height="500">
 		</td>
 		<td><span class="fragment">
 		\[
@@ -292,6 +313,7 @@
 	</section>
 
 </section>
+
 
 <!--- 7: Ellipse model p(eta|k) --->
 <section>
@@ -328,7 +350,7 @@
 				d_k\rightarrow d_\text{max}
 				\]
 				<br>
-				<span style="font-size:20px;">ellipse model related to ref.: [1]</span>				
+				<span style="font-size:18px;">ellipse model related to ref. [1]</span>				
 			</td>
 		</tr>
 	</table>
@@ -371,7 +393,7 @@
 				$\color{red}{p_\text{pickup}}\propto\text{ellipse-area}=\dfrac{\pi}{4}d_\text{max}\cdot\sqrt{d_{\text{max}}^{2}-d_{k}^{2}}$
 				</td>
 				<td align="center">
-				$\color{blue}{p_\text{dropoff}}=\dfrac{\phi}{2\pi}$
+				$\color{blue}{p_\text{dropoff}}=\dfrac{\phi_k}{2\pi}$
 				</td>
 			</tr>
 			<tr>
@@ -407,7 +429,8 @@
 		<li class="fragment">efficiency dictates minimum fleet size
 		<li class="fragment">fleet size follows weak power law
 		<li class="fragment">scaling independent of dispatcher
-		<li class="fragment">model: emergent power law without fit parameters!
+		<li class="fragment">scaling better than non-shared mobility
+		<li class="fragment">modular framework without fit parameters
 	<ul>
 </section>
 
@@ -456,7 +479,7 @@
 </section>
 
 
-<!--- 15: Acknowledgements --->
+<!--- 15: Thanks. --->
 <section>
 	<h2>Questions?</h2><br><br>
 	get in touch: steffen.muehle@ds.mpg.de<br><br><br><br>
@@ -470,7 +493,15 @@
 			<li>Alonso-Mora et al.: On-demand high-capacity ride-sharing via dynamic trip-vehicle assignment (2017)</li>
 		</ol>
 	</p>
+</section>
 
+
+<section>
+	<img src="figures/efficiency_conference.png" width="800">
+</section>
+
+<section>
+	<img src="figures/p_busy_conference.png" width="800">
 </section>
 
 
@@ -489,7 +520,7 @@
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
-          		slideNumber: true,
+          		slideNumber: 'c/t',
 				hash: true,
 				width: 1500,
                 height: 800,
