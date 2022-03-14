@@ -121,12 +121,12 @@
 				<table>
 					<tr>
 						<td>
-							<img src="figures/SketchPrivateCar.excalidraw.png" height="300" data-fragment-index="2" class="fragment semi-fade-out">
+							<img src="figures/SketchPrivateCar.excalidraw.png" height="300" data-fragment-index="1" class="fragment semi-fade-out">
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<img src="figures/SketchRidePooling.excalidraw.png" height="300">
+							<img src="figures/SketchRidePooling.excalidraw.png" height="300" data-fragment-index="1" class="fragment">
 						</td>
 					</tr>
 				</table>
@@ -134,24 +134,23 @@
 			<td width="200"></td>
 			<td>
 				<ol>
-					<li class="fragment">Buses needed?</li>
-					<li class="fragment">Maximum request frequency?</li>
-					<li class="fragment">
-						How efficient?
+					<li class="fragment" data-fragment-index="3">Buses needed?</li>
+					<li class="fragment" data-fragment-index="4">Maximum request frequency?</li>
+					<li class="fragment" data-fragment-index="5">How efficient?</li>
+				</ol>
+				<br><br><br>
+				<h3 class="fragment" data-fragment-index="6">simulation + theory</h3>
+			</td>
+		</tr>
+	</table>
+</section>
+<!---
 						\[
 						\eta=\dfrac{T_\text{requested}}{T_\text{driven}}
 						\fragapply{fragment 4}{=\dfrac{T_\text{bus}/T_\text{driven}}{T_\text{bus}/T_\text{requested}}}
 						\fragapply{fragment 5}{=\dfrac{\langle b\rangle}{\langle\delta\rangle}}
 						\]
-					</li>
-				</ol>
-				<br><br><br>
-				<h3 class="fragment" data-fragment-index="2">simulation + theory</h3>
-			</td>
-		</tr>
-	</table>
-</section>
-
+--->
 
 <!--- 2:  simulation + define f_80 --->
 <section>
@@ -166,7 +165,7 @@
 	<table><tr>
 		<td>
 			<div class="r-stack">		
-				<span class="fragment fade-out">
+				<span class="fragment fade-in-then-out">
 					<iframe src="videos/region3_30_3_seed_delays_long.webm" height="600" width="1000" type="video/webm"></iframe>
 				</span>
 			
@@ -305,7 +304,7 @@
 		\[
 		\begin{aligned}
 			&\fragapply{fragment 1}{\color{green}{p(M|f)}=e^{-\Lambda}\dfrac{\Lambda^M}{M!}\quad\text{ where }\Lambda=f\cdot T\Rightarrow\langle M\rangle\propto f}\\
-			&\fragapply{fragment 2}{\color{red}{p(k|M)\}}:\,\,\text{insertion model}}\\
+			&\fragapply{fragment 2}{\color{red}{p(k|M)}:\,\,\text{insertion model}}\\
 			&\fragapply{fragment 3}{\color{blue}{p(\eta|k)}:\,\,\text{ellipse model}}
 		\end{aligned}
 		\]
