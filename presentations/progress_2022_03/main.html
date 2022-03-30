@@ -1,0 +1,419 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="../../dist/reset.css">
+		<link rel="stylesheet" href="../../dist/reveal.css">
+		<link rel="stylesheet" href="../../dist/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="../../plugin/highlight/monokai.css" id="highlight-theme">
+
+		<style>
+    		header {
+    			  padding: 40px;
+    		}
+
+    		ul {
+    		  font-size: 32px;
+    		  font-color: white;
+    		}
+
+    		table {
+    		  color: white;
+    		}
+
+			* {box-sizing:border-box}
+
+			/* Slideshow container */
+			.slideshow-container {
+			max-width: 1000px;
+			position: relative;
+			margin: auto;
+			}
+
+			/* Hide the images by default */
+			.mySlides {
+			display: none;
+			}
+
+			/* Next & previous buttons */
+			.prev, .next {
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			width: auto;
+			margin-top: -22px;
+			padding: 16px;
+			color: white;
+			font-weight: bold;
+			font-size: 18px;
+			transition: 0.6s ease;
+			border-radius: 0 3px 3px 0;
+			user-select: none;
+			}
+
+			/* Position the "next button" to the right */
+			.next {
+			right: 0;
+			border-radius: 3px 0 0 3px;
+			}
+
+			/* On hover, add a black background color with a little bit see-through */
+			.prev:hover, .next:hover {
+			background-color: rgba(0,0,0,0.8);
+			}
+
+			/* Caption text */
+			.text {
+			color: #f2f2f2;
+			font-size: 15px;
+			padding: 8px 12px;
+			position: absolute;
+			bottom: 8px;
+			width: 100%;
+			text-align: center;
+			}
+
+			/* Fading animation */
+			.fade {
+			-webkit-animation-name: fade;
+			-webkit-animation-duration: 0.01s;
+			animation-name: fade;
+			animation-duration: 0.01s;
+			}
+
+			@-webkit-keyframes fade {
+			from {opacity: .4}
+			to {opacity: 1}
+			}
+
+			@keyframes fade {
+			from {opacity: .4}
+			to {opacity: 1}
+			}
+		</style>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<section>
+	<h2>Progress report 2022/03</h2><br>
+	Steffen Mühle<br><br><br>
+	<span style="font-size:26px;">email: steffen.muehle@ds.mpg.de</span><br>
+	<span style="font-size:26px;">Heidemann group, Max-Planck Institute for Dynamics and Self-Organization, Göttingen</span>
+</section>
+
+
+<!--- 1: RidePooling --->
+<section>
+	
+	<table>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td>
+							<img src="figures/SketchPrivateCar.excalidraw.png" height="300" data-fragment-index="1" class="fragment semi-fade-out">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<img src="figures/SketchRidePooling.excalidraw.png" height="300" data-fragment-index="1" class="fragment">
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td width="200"></td>
+			<td>
+				<ol>
+					<li class="fragment" data-fragment-index="3">Buses needed?</li>
+					<li class="fragment" data-fragment-index="4">Maximum request frequency?</li>
+					<li class="fragment" data-fragment-index="5">How efficient?</li>
+				</ol>
+				<br><br><br>
+			</td>
+		</tr>
+	</table>
+</section>
+<!---
+						\[
+						\eta=\dfrac{T_\text{requested}}{T_\text{driven}}
+						\fragapply{fragment 4}{=\dfrac{T_\text{bus}/T_\text{driven}}{T_\text{bus}/T_\text{requested}}}
+						\fragapply{fragment 5}{=\dfrac{\langle b\rangle}{\langle\delta\rangle}}
+						\]
+--->
+
+
+
+<!--- 5:  supply-demand --->
+<section>
+
+	<!--- 5.1:  apples --->
+	<section>
+			<img src="figures/apples.png" width="900">
+	</section>
+
+	<!--- 5.2:  humans --->
+	<section>
+		<div class="slideshow-container">
+	  
+			<div class="mySlides fade">
+			  <img src="figures/humans.png" height="400">
+			</div>
+		  
+			<div class="mySlides fade">
+			  <img src="figures/SketchRidePooling.excalidraw.png" height="400">
+			</div>
+		  
+			<!-- Next and previous buttons -->
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+		</div>
+		\[
+		\fragapply{fragment 1}{\color{red}{\langle b\rangle=p_\text{served}\dfrac{f}{N}\cdot\langle t_\text{bus}\rangle}}\fragapply{fragment 2}{=:p_\text{served}\dfrac{f}{N}\cdot\langle t_\text{direct}\rangle\cdot\langle\delta\rangle}\\
+		\fragapply{fragment 3}{\Leftrightarrow\quad\boxed{\hat{f}=N\cdot\eta(\hat{f},N)\cdot\dfrac{p_\text{driving}}{p_\text{served}}}
+		\quad\text{where}\quad\eta=\dfrac{\langle b\rangle_\text{driving}}{\langle\delta\rangle}}
+		\fragapply{fragment 4}{=\dfrac{T_\text{bus}/T_\text{driven}}{T_\text{bus}/T_\text{requested}}}
+		\]</span><br>
+	
+	</section>
+
+</section>
+
+
+<!--- 6:  Bayesian chain --->
+<section>
+
+	<section>
+		<table><tr>
+			<td style="vertical-align: top;">
+				<img src="figures/flowchart1.png">
+			</td>
+				<td><span class="fragment">
+			\[
+				\begin{aligned}
+				\langle Z\rangle&=\sum_{z}z\,p(z)\\
+				&\fragapply{fragment 3}{=\sum_{z}z\sum_{y}p(z|y)p(y)}\\
+				&\fragapply{fragment 4}{=\sum_{z}z\sum_{y}p(z|y)\sum_{x}p(y|x)p(x)}\\
+				&\fragapply{fragment 5}{=\dots}
+					\end{aligned}
+			\]
+ 			</span></td>
+ 		</tr></table>
+	</section>
+
+	<section>
+		<table><tr><td style="vertical-align: top;">
+			<img src="figures/BayesianFlowchart.excalidraw.png" height="500">
+		</td>
+		<td><span class="fragment">
+		\[
+		\begin{aligned}
+			\langle\eta\rangle=\int\,\text{d}\eta\,\eta\underbrace{\sum_{k}\color{blue}{p(\eta|k)}\underbrace{\sum_M\color{red}{p(k|M)}\,\color{green}{p(M|f)}}_{p(k)}}_{p(\eta)}
+		\end{aligned}
+		\]
+		\[
+		\begin{aligned}
+			&\fragapply{fragment 1}{\color{green}{p(M|f)}=e^{-\Lambda}\dfrac{\Lambda^M}{M!}\quad\text{ where }\Lambda=f\cdot T\Rightarrow\langle M\rangle\propto f}\\
+			&\fragapply{fragment 2}{\color{red}{p(k|M)}:\,\,\text{insertion model}}\\
+			&\fragapply{fragment 3}{\color{blue}{p(\eta|k)}:\,\,\text{ellipse model}}
+		\end{aligned}
+		\]
+		</span></td>
+		</tr></table>
+	</section>
+
+</section>
+
+
+<!--- 7: Ellipse model p(eta|k) --->
+<section>
+	\[\text{Ellipse model:}\,\,p(\eta|k)\]
+	<table>
+		<tr>
+			<td>
+				<img src="figures/k0.png" height="250">
+				<span class="fragment">
+					<div class="r-stack">
+						<span>
+						<img src="figures/k1.png" height="250">
+						</span>
+					
+						<span class="fragment">
+						<img src="figures/k2.png" height="250">
+						</span>
+					
+						<span class="fragment">
+						<img src="figures/k3.png" height="250">
+						</span>
+					
+						<span class="fragment">
+						<img src="figures/k4.png" height="250">
+						</span>
+					</div>
+				</span>
+			</td>
+			<td width="300" style="vertical-align: top;">
+				<br>			
+				\[
+				\eta_k=\frac{b_k}{d_k/d_0}\\
+				b_k=1+\dfrac{k}{2}\\
+				d_k\rightarrow d_\text{max}
+				\]			
+			</td>
+		</tr>
+	</table>
+</section>
+
+
+<!--- 8:  Insertion model p(k|m) --->
+<section>
+	\[\text{Insertion model:}\,\,p(k|M)\]
+	<table><tr><td style="vertical-align: top;">
+		<div class="r-stack">
+	  
+			<span>
+			  <img src="figures/EfficiencyPaper_pkM_0.excalidraw.png" height="250">
+			</span>
+		  
+			<span class="fragment">
+			  <img src="figures/EfficiencyPaper_pkM_5.excalidraw.png" height="250">
+			</span>
+		  
+			<span class="fragment">
+			  <img src="figures/EfficiencyPaper_pkM.excalidraw.png" height="250">
+			</span>
+		</div>
+	</td><td>
+		<img class="fragment" src="figures/p_k_M.png" height="400">
+	</td></tr></table>
+	<span class="fragment">\[
+		p(k|M+1)=p(k|M)+\overbrace{p(k-1|M)R_{k-1}}^\text{inflow from k-1}-\overbrace{p(k|M)R_k}^\text{outflow to k+1}\quad\text{and}\,\, p(k|0)=\delta_{k,0}
+	\]</span>
+</section>
+
+
+<!--- 10: model power law!! --->
+<section>
+	<table width="1500" height="400"><tr>
+		<td><img src="figures/model_eta.png" width="900"></td>
+		<td><img src="figures/model_fleetsize.png" width="900" class="fragment"></td>
+	</tr></table>
+	\[\text{reminder: }f=N\cdot\dfrac{\eta}{0.8}\]
+</section>
+
+
+<!--- 12: Origin of scaling --->
+<section>
+	<h3>Scaling origin</h3><br>
+	\[\fragapply{fragment 1}{f\propto\eta\cdot N}\\
+	\fragapply{fragment 2}{\eta=\dfrac{b}{\delta}\sim b\propto k}\\
+	\fragapply{fragment 3}{f\sim M\sim R_{k}^{-1}\sim c^{k}}\\
+	\fragapply{fragment 4}{\Leftrightarrow\quad k\sim\log(f)}\\~\\
+	\fragapply{fragment 5}{\Rightarrow f\propto\log(f)\cdot N}\\~\\
+	\fragapply{fragment 6}{R_k\text{ dictates scaling properties}}\]
+</section>
+
+
+<!--- 13: Outlook --->
+<section>
+	<h3>Comparing maps</h3><br>
+
+	<table width="1500" height="400"><tr>
+		<td><img src="figures/pcdfm_allmaps.png" width="800"></td>
+		<td><div class="r-stack">
+			<span class="fragment fade-out"><img src="figures/stargrid_32_32_demo.png" width="600"></span>
+			<span class="fragment"><img src="figures/broitzem_demo.png" width="600"></span>
+			<span class="fragment"><img src="figures/region1_demo.png" width="600"></span>
+			<span class="fragment"><img src="figures/htree4_demo.png" width="600"></span>
+		</div></td>
+	</tr></table>
+
+</section>
+
+
+<section>
+	<h3>Scaling origin</h3><br>
+	\[f\propto\eta\cdot N\\
+	\eta=\dfrac{b}{\delta}\sim b\propto k\\
+	f\sim M\sim R_{k}^{-1}\sim \color{red}{\text{const.}}\\
+	\Leftrightarrow\quad k\sim a+b\,f\\~\\
+	\Rightarrow f\propto(a+b\,f)\cdot N\\
+	\fragapply{fragment 1}{\Leftrightarrow\quad f=\dfrac{aN}{1-bN}}\]
+</section>
+
+
+<!--- THE END --->
+
+			</div>
+		</div>
+
+		<script src="../../dist/reveal.js"></script>
+		<script src="../../plugin/notes/notes.js"></script>
+		<script src="../../plugin/markdown/markdown.js"></script>
+		<script src="../../plugin/highlight/highlight.js"></script>
+		<script src="../../plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+          		slideNumber: 'c/t',
+				hash: true,
+				width: 1500,
+                height: 800,
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+		<script>
+			var slideIndex = 1;
+			showSlides(slideIndex);
+
+			// Next/previous controls
+			function plusSlides(n) {
+			showSlides(slideIndex += n);
+			}
+
+			// Thumbnail image controls
+			function currentSlide(n) {
+			showSlides(slideIndex = n);
+			}
+
+			function showSlides(n) {
+			var i;
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+			if (n > slides.length) {slideIndex = 1}
+			if (n < 1) {slideIndex = slides.length}
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" active", "");
+			}
+			slides[slideIndex-1].style.display = "block";
+			dots[slideIndex-1].className += " active";
+			} 
+		</script>
+
+	</body>
+</html>
